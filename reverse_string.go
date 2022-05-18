@@ -1,13 +1,23 @@
 package reverse_string
 
-func ReverseString(input string) (output string) {
-	newStr := make([]rune, len(input))
-	index := len(input) - 1
+import "fmt"
 
-	for _, runeValue := range input {
+func ReverseString(input string) (output string) {
+	newStr := []rune(input)
+	fmt.Println(newStr)
+	index := len(newStr) - 1
+
+	for i, runeValue := range input {
 		newStr[index] = runeValue
+		fmt.Println(input[i], runeValue)
 		index -= 1
 	}
-	output = string(newStr)
-	return
+
+	return string(newStr)
 }
+
+// runes := []rune(s)
+//     for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+//         runes[i], runes[j] = runes[j], runes[i]
+//     }
+//     return string(runes)
